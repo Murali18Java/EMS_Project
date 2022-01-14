@@ -71,8 +71,8 @@ public class EmployeeDaoFile implements EmployeeDao  {
 				employee.setDeptId(rs.getInt("dept_id"));
 			}
 
-			rs.close();
-			statement.close();
+			//rs.close();
+			//statement.close();
 
 		} catch (SQLException e) {
 
@@ -97,7 +97,7 @@ public class EmployeeDaoFile implements EmployeeDao  {
 
 			count = statement.executeUpdate();
 
-			statement.close();
+			//statement.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -127,17 +127,18 @@ public class EmployeeDaoFile implements EmployeeDao  {
 
 			count = statement.executeUpdate();
 
-			statement.close();
+			//statement.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		if (count == 1)
+		if (count == 1) {
 			return true;
-
-		return false;
+		}
+		else
+			return false;
 
 	}
 
@@ -153,7 +154,7 @@ public class EmployeeDaoFile implements EmployeeDao  {
 
 			count = statement.executeUpdate();
 
-			statement.close();
+			//statement.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -178,7 +179,7 @@ public class EmployeeDaoFile implements EmployeeDao  {
 
 			count = statement.executeUpdate();
 
-			statement.close();
+			//statement.close();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

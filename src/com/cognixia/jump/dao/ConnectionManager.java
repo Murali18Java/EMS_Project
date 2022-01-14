@@ -13,21 +13,22 @@ public class ConnectionManager {
 	
 	//String pass = getPassword();
 	
-	public static String getPassword() {
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("Enter your MySQL password :");
-
-		String pass = sc.nextLine();
-		
-		return pass;
-		
-	}
+	/*
+	 * public static String getPassword() { Scanner sc = new Scanner(System.in);
+	 * 
+	 * System.out.println("Enter your MySQL password :");
+	 * 
+	 * String pass = sc.nextLine();
+	 * 
+	 * return pass;
+	 * 
+	 * }
+	 */
 
 	
-	//private static final String PASSWORD = "Mur@li18root";
+	private static final String PASSWORD = "Mur@li18root";
 	
-	private static final String PASSWORD = getPassword();
+	//private static final String PASSWORD = getPassword();
 	
 	
 	

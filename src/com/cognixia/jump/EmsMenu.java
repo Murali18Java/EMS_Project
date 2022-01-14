@@ -19,16 +19,20 @@ public class EmsMenu {
 		int choice = 1;
 
 		do {
-
-			System.out.println("Welcome to the EMS Application");
-			System.out.println("Select an option:");
-
-			System.out.println("1. View Employees" + " \n2. Add Employee " + "\n3. Delete Employee "
-					+ "\n4. Edit Employee" + "\n5. Exit Program");
-
 			Scanner sc = new Scanner(System.in);
 
-			System.out.println("Enter an option:");
+			/*
+			 * System.out.println("Welcome to the EMS Application");
+			 * System.out.println("Select an option:");
+			 * 
+			 * System.out.println("1. View Employees" + " \n2. Add Employee " +
+			 * "\n3. Delete Employee " + "\n4. Edit Employee" + "\n5. Exit Program");
+			 * 
+			 * 
+			 * 
+			 * System.out.println("Enter an option:");
+			 */
+			displayMenu();
 			try {
 				choice = sc.nextInt();
 				System.out.println("You choose :: " + choice);
@@ -41,6 +45,7 @@ public class EmsMenu {
 			switch (choice) {
 			case 1:
 				viewEmployees();
+				System.out.println("\f");
 				break;
 			case 2:
 				addEmployees();
@@ -56,11 +61,29 @@ public class EmsMenu {
 				break;
 			}
 
-			sc.close();
+			
+			
 
 		} while (choice == 5);
 	}
 
+	public static void displayMenu() {
+		
+		System.out.println("Welcome to the EMS Application");
+		System.out.println("Select an option:");
+
+		System.out.println("1. View Employees" + " \n2. Add Employee " + "\n3. Delete Employee "
+				+ "\n4. Edit Employee");
+
+		
+
+		System.out.println("Enter an option:");
+		
+		
+	}
+
+	
+	
 	public void deleteEmployees() {
 		// TODO Auto-generated method stub
 
@@ -75,9 +98,9 @@ public class EmsMenu {
 		check = runner.deleteEmployeeById(id);
 
 		if (check == true) {
-			System.out.println("EmpId :" + id + "Deleted from the database");
+			System.out.println("EmpId :" + id + ". \nDeleted from the database");
 		}
-		sc.close();
+		//sc.close();
 	}
 
 	public void addEmployees() {
@@ -89,11 +112,22 @@ public class EmsMenu {
 		int deptId = 0;
 		String fName, lName;
 
-		boolean check;
+		boolean check=false, gate=false;
+		
+		do {
+			
+		if(gate)	
+		{
+			System.out.println("You have entered is Empty String!!");
+		}
 
 		System.out.println("Enter the First Name :");
 
 		fName = sc.nextLine();
+		
+		gate = fName.isEmpty();
+		
+		}while(fName.isEmpty());
 
 		System.out.println("Enter the Last Name :");
 
@@ -110,7 +144,7 @@ public class EmsMenu {
 		check = runner.addEmployee(emp);
 
 		if (check == true) {
-			System.out.println("Employee :" + fName + " " + lName + " Added to the database");
+			System.out.println("Employee :" + fName + " " + lName + "\nAdded to the database");
 		}
 
 	}
@@ -127,13 +161,13 @@ public class EmsMenu {
 			System.out.println(employee.toString());
 		}
 
-		try {
-			ConnectionManager.getConnection().close();
-
-		} catch (SQLException e) {
-
-			System.out.println("Could not close connection viewEmployees");
-		}
+		/*
+		 * try { ConnectionManager.getConnection().close();
+		 * 
+		 * } catch (SQLException e) {
+		 * 
+		 * System.out.println("Could not close connection viewEmployees"); }
+		 */
 
 	}
 
@@ -178,7 +212,9 @@ public class EmsMenu {
 		if (check == true) {
 			System.out.println("EmpId :" + id + " Updated on the database!!");
 		}
-		sc.close();
+		else 
+			System.out.println("EmpId :" + id + " Doesn't exists on the database!!");
+		
 
 	}
 

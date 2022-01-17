@@ -49,10 +49,7 @@ public class EmployeeDaoFile implements EmployeeDao  {
 		
 	}
 
-	//@Override
-	//public Employee getEmployee(int id) {
-		
-	//}
+
 
 	@Override
 	public Employee getEmployeeById(int id) {
@@ -60,7 +57,7 @@ public class EmployeeDaoFile implements EmployeeDao  {
 		Employee employee = new Employee();
 
 		try {
-			PreparedStatement statement = connection.prepareStatement("SELECT * FROM employees WHERE id = ?");
+			PreparedStatement statement = connection.prepareStatement("SELECT * FROM employees WHERE emp_id = ?");
 			statement.setInt(1, id);
 			ResultSet rs = statement.executeQuery();
 

@@ -16,10 +16,13 @@ public class Main {
 		menu.mainMenu();
 		
 		System.out.println("Do you want to exit ?(Y/N) :");
-		//sc.nextLine();
+		
 		con = sc.nextLine();
 		
 		}while(!con.matches("y") && !con.matches("Y"));
+		
+		System.out.println("Thanks! For using this product.");
+		System.out.println("(c)Copyright all rights reserved.");
 		
 		sc.close();
 	}

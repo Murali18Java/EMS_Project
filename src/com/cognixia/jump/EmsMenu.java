@@ -21,17 +21,6 @@ public class EmsMenu {
 		do {
 			Scanner sc = new Scanner(System.in);
 
-			/*
-			 * System.out.println("Welcome to the EMS Application");
-			 * System.out.println("Select an option:");
-			 * 
-			 * System.out.println("1. View Employees" + " \n2. Add Employee " +
-			 * "\n3. Delete Employee " + "\n4. Edit Employee" + "\n5. Exit Program");
-			 * 
-			 * 
-			 * 
-			 * System.out.println("Enter an option:");
-			 */
 			displayMenu();
 			try {
 				choice = sc.nextInt();
@@ -61,31 +50,25 @@ public class EmsMenu {
 				break;
 			}
 
-			
-			
-
 		} while (choice == 5);
 	}
 
 	public static void displayMenu() {
-		
+
 		System.out.println("Welcome to the EMS Application");
 		System.out.println("Select an option:");
 
-		System.out.println("1. View Employees" + " \n2. Add Employee " + "\n3. Delete Employee "
-				+ "\n4. Edit Employee");
+		System.out
+				.println("1. View Employees" + 
+						" \n2. Add Employee " + 
+						" \n3. Delete Employee " + 
+						" \n4. Edit Employee");
 
-		
+		System.out.println("Enter an Option:");
 
-		System.out.println("Enter an option:");
-		
-		
 	}
 
-	
-	
 	public void deleteEmployees() {
-		// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);
 		int id = 0;
@@ -100,11 +83,10 @@ public class EmsMenu {
 		if (check == true) {
 			System.out.println("EmpId :" + id + ". \nDeleted from the database");
 		}
-		//sc.close();
+		// sc.close();
 	}
 
 	public void addEmployees() {
-		// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);
 
@@ -112,22 +94,21 @@ public class EmsMenu {
 		int deptId = 0;
 		String fName, lName;
 
-		boolean check=false, gate=false;
-		
+		boolean check = false, gate = false;
+
 		do {
-			
-		if(gate)	
-		{
-			System.out.println("You have entered is Empty String!!");
-		}
 
-		System.out.println("Enter the First Name :");
+			if (gate) {
+				System.out.println("You have entered is Empty String!!");
+			}
 
-		fName = sc.nextLine();
-		
-		gate = fName.isEmpty();
-		
-		}while(fName.isEmpty());
+			System.out.println("Enter the First Name :");
+
+			fName = sc.nextLine();
+
+			gate = fName.isEmpty();
+
+		} while (fName.isEmpty());
 
 		System.out.println("Enter the Last Name :");
 
@@ -161,26 +142,16 @@ public class EmsMenu {
 			System.out.println(employee.toString());
 		}
 
-		/*
-		 * try { ConnectionManager.getConnection().close();
-		 * 
-		 * } catch (SQLException e) {
-		 * 
-		 * System.out.println("Could not close connection viewEmployees"); }
-		 */
-
 	}
 
 	public void editEmployees() {
-		
 
 		int id;
 		boolean check;
 		Employee emp = new Employee();
 		int deptId = 0;
-		String fName="", lName="";
-		
-		
+		String fName = "", lName = "";
+
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("Enter the emp_id, which you want to edit ? :");
@@ -199,7 +170,7 @@ public class EmsMenu {
 		System.out.println("Enter the Dept_Id (starts from 1000):");
 
 		deptId = sc.nextInt();
-		
+
 		emp.setEmpId(id);
 		emp.setEmpFirstName(fName);
 		emp.setEmpLastName(lName);
@@ -207,14 +178,10 @@ public class EmsMenu {
 
 		check = runner.updateEmployee(emp);
 
-		//check = runner.updateEmployeeById(id);
-
 		if (check == true) {
 			System.out.println("EmpId :" + id + " Updated on the database!!");
-		}
-		else 
+		} else
 			System.out.println("EmpId :" + id + " Doesn't exists on the database!!");
-		
 
 	}
 
